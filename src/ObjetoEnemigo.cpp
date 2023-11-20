@@ -39,7 +39,7 @@ ObjetoEnemigo::ObjetoEnemigo(ObjetoPersonaje* jugador, std::string& pathTexture)
 
 ObjetoEnemigo::ObjetoEnemigo() {};
 
-//Función para actualizar la posición y el comportamiento del ObjetoEnemigo
+//FunciÃ³n para actualizar la posiciÃ³n y el comportamiento del ObjetoEnemigo
 void ObjetoEnemigo::update(std::vector<ObjetoEnemigo*>& vZombies)
 {
     //Variable para transcurrir el tiempo de la reaparicion del grito del zombie
@@ -53,14 +53,14 @@ void ObjetoEnemigo::update(std::vector<ObjetoEnemigo*>& vZombies)
         std::rand() % 2==0? zombiesound.play() : zombiesound2.play();
     }
 
-    // Calcula la dirección hacia el personaje
+    // Calcula la direcciÃ³n hacia el personaje
     sf::Vector2f direccion = _jugador->getPosition() - _sprite.getPosition();
 
     // Calcula la distancia entre el ObjetoEnemigo y el personaje
 
     float distancia = std::sqrt(direccion.x * direccion.x + direccion.y * direccion.y);
 
-    // Normaliza la dirección (la convierte en un vector unitario)
+    // Normaliza la direcciÃ³n (la convierte en un vector unitario)
     direccion /= distancia;
 
     if(vida<=0){
@@ -72,11 +72,11 @@ void ObjetoEnemigo::update(std::vector<ObjetoEnemigo*>& vZombies)
     // Mueve el ObjetoEnemigo hacia el personaje
     _sprite.move(direccion * velocidad);
 
-    // Calcula el ángulo de rotación basado en la dirección
+    // Calcula el Ã¡ngulo de rotaciÃ³n basado en la direcciÃ³n
     float angulo = std::atan2(direccion.y, direccion.x) * (180.0f / 3.14159265f);
     ultima = angulo;
 
-    // Establece la rotación del sprite según el ángulo calculado
+    // Establece la rotaciÃ³n del sprite segÃºn el Ã¡ngulo calculado
     if(vida>0)
     {
         _sprite.setRotation(angulo);
@@ -85,7 +85,7 @@ void ObjetoEnemigo::update(std::vector<ObjetoEnemigo*>& vZombies)
     _frame += 0.15;
     _frameAtaque += 0.08;
 
-    // Si el frame llega a 12, se reinicia a 0 para dar el efecto de animación
+    // Si el frame llega a 12, se reinicia a 0 para dar el efecto de animaciÃ³n
     if(_frame>=12)
     {
         _frame=0;
@@ -96,7 +96,7 @@ void ObjetoEnemigo::update(std::vector<ObjetoEnemigo*>& vZombies)
     }
 
 
-    // Establece el rectángulo de textura para la animación
+    // Establece el rectÃ¡ngulo de textura para la animaciÃ³n
     if(vida>0)
     {
         _sprite.setTextureRect({0+(int)_frame*90,0,90,90});
@@ -116,37 +116,37 @@ void ObjetoEnemigo::update(std::vector<ObjetoEnemigo*>& vZombies)
 
     for (int i = 0; i < vZombies.size(); i++)
     {
-    // Verificar si el zombie está muerto
+    // Verificar si el zombie estÃ¡ muerto
     if (vZombies[i]->getVida() <= 0)
     {
-        continue;  // Saltar al siguiente zombie si está muerto
+        continue;  // Saltar al siguiente zombie si estÃ¡ muerto
     }
 
     for (int j = i + 1; j < vZombies.size(); j++)
     {
-        // Verificar si el otro zombie está muerto
+        // Verificar si el otro zombie estÃ¡ muerto
         if (vZombies[j]->getVida() <= 0)
         {
-            continue;  // Saltar al siguiente zombie si está muerto
+            continue;  // Saltar al siguiente zombie si estÃ¡ muerto
         }
 
         if (vZombies[i]->isCollision(vZombies[j]))
         {
-            // Calcular la dirección y distancia entre los dos zombies
+            // Calcular la direcciÃ³n y distancia entre los dos zombies
             sf::Vector2f direccion = vZombies[i]->getPosition() - vZombies[j]->getPosition();
             float distancia = sqrt(direccion.x * direccion.x + direccion.y * direccion.y);
 
-            // Normalizar el vector de dirección
+            // Normalizar el vector de direcciÃ³n
             if (distancia != 0)
             {
                 direccion /= distancia;
             }
 
-            // Calcular la superposición y el vector de separación
+            // Calcular la superposiciÃ³n y el vector de separaciÃ³n
             float superposicion = vZombies[i]->getRadius() + vZombies[j]->getRadius() - distancia;
             sf::Vector2f separacion = direccion * superposicion * 0.5f;
 
-            // Mover los zombies para resolver la colisión
+            // Mover los zombies para resolver la colisiÃ³n
             vZombies[i]->move(separacion);
             vZombies[j]->move(-separacion);
         }
@@ -168,14 +168,14 @@ void ObjetoEnemigo::update(std::vector<ObjetoEnemigo*>& vZombies)
 
 }
 
-// Función de dibujo que implementa la interfaz sf::Drawable
+// FunciÃ³n de dibujo que implementa la interfaz sf::Drawable
 void ObjetoEnemigo::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
     // Dibuja el sprite del ObjetoEnemigo en el objetivo (render target)
     target.draw(_sprite, states);
 }
 
-// Función para reubicar al ObjetoEnemigo en una posición específica
+// FunciÃ³n para reubicar al ObjetoEnemigo en una posiciÃ³n especÃ­fica
 void ObjetoEnemigo::respawn(std::vector<ObjetoEnemigo*>& _vEnemigos)
 {
     std::srand(std::time(nullptr));
@@ -185,7 +185,7 @@ void ObjetoEnemigo::respawn(std::vector<ObjetoEnemigo*>& _vEnemigos)
 
     do
     {
-        colision = false;  // Inicializamos la bandera de colisión
+        colision = false;  // Inicializamos la bandera de colisiÃ³n
         randomX = std::rand() % 1080;
         randomY = std::rand() % 720;
 
@@ -200,7 +200,7 @@ void ObjetoEnemigo::respawn(std::vector<ObjetoEnemigo*>& _vEnemigos)
                                      std::pow(randomY - otroEnemigo->_sprite.getPosition().y, 2)
                                  );
 
-                // Si la distancia es menor que 50, hay colisión
+                // Si la distancia es menor que 50, hay colisiÃ³n
                 if (distance < 50)
                 {
                     colision = true;
@@ -211,7 +211,7 @@ void ObjetoEnemigo::respawn(std::vector<ObjetoEnemigo*>& _vEnemigos)
 
         if (!colision)
         {
-            // Establecemos la posición solo si no hay colisión
+            // Establecemos la posiciÃ³n solo si no hay colisiÃ³n
             _sprite.setPosition(randomX, randomY);
         }
     }
@@ -223,11 +223,11 @@ void ObjetoEnemigo::golpear()
     muertesound.play();
 }
 
-// Función para obtener los límites del ObjetoEnemigo (implementación de la interfaz Collisionable)
+// FunciÃ³n para obtener los lÃ­mites del ObjetoEnemigo (implementaciÃ³n de la interfaz Collisionable)
 sf::FloatRect ObjetoEnemigo::getBounds() const
 {
 
-    // Devuelve los límites globales del sprite
+    // Devuelve los lÃ­mites globales del sprite
     return _sprite.getGlobalBounds();
 }
 
@@ -272,12 +272,12 @@ void ObjetoEnemigo::colisionConBala(std::vector<Bala*>& bullets, std::vector<Obj
         {
             auto bullet = *itBullet;
 
-            if (zombie->isCollision(bullet))
+            if (zombie->isCollision(bullet) && zombie->vida>0)
             {
-                // Si hay colisión, incrementa el contador de golpes del zombie
+                // Si hay colisiÃ³n, incrementa el contador de golpes del zombie
                 zombie->recibioBala();
 
-                // Libera la memoria de la bala y elimínala del vector
+                // Libera la memoria de la bala y elimÃ­nala del vector
                 delete bullet;
                 itBullet = bullets.erase(itBullet);
             }
