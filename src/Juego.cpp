@@ -36,7 +36,7 @@ void Juego::mostrarPantallaGameOver(sf::RenderWindow &window) {
     sf::Text text;
     text.setFont(font);
     text.setString("Game Over");
-    text.setCharacterSize(150); // en píxeles
+    text.setCharacterSize(150); // en pÃ­xeles
     text.setFillColor(sf::Color::Red);
     text.setStyle(sf::Text::Bold);
     text.setPosition(window.getSize().x / 2 - text.getLocalBounds().width / 2,
@@ -56,7 +56,7 @@ void Juego::mostrarPantallaGano(sf::RenderWindow &window) {
     sf::Text text;
     text.setFont(font);
     text.setString("GANASTE");
-    text.setCharacterSize(150); // en píxeles
+    text.setCharacterSize(150); // en pÃ­xeles
     text.setFillColor(sf::Color::Red);
     text.setStyle(sf::Text::Bold);
     text.setPosition(window.getSize().x / 2 - text.getLocalBounds().width / 2,
@@ -120,7 +120,7 @@ sf::Sprite spriteVida(textureVida);
     sf::Text textoPuntos;
     textoPuntos.setFont(font);
     textoPuntos.setString("Puntos: " + std::to_string(soldado.getPuntos()));
-    textoPuntos.setCharacterSize(50); // Tamaño de la fuente
+    textoPuntos.setCharacterSize(50); // TamaÃ±o de la fuente
     textoPuntos.setFillColor(sf::Color::White);
     textoPuntos.setPosition(50, 50);
 
@@ -128,35 +128,35 @@ sf::Sprite spriteVida(textureVida);
     sf::Text textoBalas;
     textoBalas.setFont(font);
     textoBalas.setString("Balas: " + std::to_string(soldado.getBalasEnCargador()) + "/" + std::to_string(soldado.getBalas()));
-    textoBalas.setCharacterSize(50); // Tamaño de la fuente
+    textoBalas.setCharacterSize(50); // TamaÃ±o de la fuente
     textoBalas.setFillColor(sf::Color::White);
-    textoBalas.setPosition(50, 100); // Ajuste de la posición
+    textoBalas.setPosition(50, 100); // Ajuste de la posiciÃ³n
 
     // Texto de la salud
     sf::Text textoSalud;
     textoSalud.setFont(font);
     textoSalud.setString("Salud: " + std::to_string(soldado.getSaludActual()) + "/100");
-    textoSalud.setCharacterSize(50); // Tamaño de la fuente
+    textoSalud.setCharacterSize(50); // TamaÃ±o de la fuente
     textoSalud.setFillColor(sf::Color::White);
-    textoSalud.setPosition(50, 150); // Ajuste de la posición
+    textoSalud.setPosition(50, 150); // Ajuste de la posiciÃ³n
 
     //Texto Ronda
     sf::Text textoRonda;
     textoRonda.setFont(font);
     textoRonda.setString("Ronda: " + std::to_string(_ronda.getRonda()) + "/10");
-    textoRonda.setCharacterSize(50); // Tamaño de la fuente
+    textoRonda.setCharacterSize(50); // TamaÃ±o de la fuente
     textoRonda.setFillColor(sf::Color::Red);
-    textoRonda.setPosition(50, 200); // Ajuste de la posición
+    textoRonda.setPosition(50, 200); // Ajuste de la posiciÃ³n
 
 
-    // Todo este bloque es para obtener el tamaño de pixeles de cada imagen y ajustarlo a los pixeles que yo quiero
+    // Todo este bloque es para obtener el tamaÃ±o de pixeles de cada imagen y ajustarlo a los pixeles que yo quiero
 
-        // Obtiene el tamaño actual de la textura
+        // Obtiene el tamaÃ±o actual de la textura
     sf::Vector2u textureSizePuntos = texturePuntos.getSize();
     sf::Vector2u textureSizeBalas = textureBalas.getSize();
     sf::Vector2u textureSizeVida = textureVida.getSize();
 
-    // Calcula la escala necesaria para ajustar el tamaño de la imagen
+    // Calcula la escala necesaria para ajustar el tamaÃ±o de la imagen
     float pixeles = 50.0f;
     float scalePuntos = pixeles / textureSizePuntos.x;
     float scaleBalas = pixeles / textureSizeBalas.x;
@@ -204,7 +204,7 @@ void Juego::mostrarIntro(sf::RenderWindow &window)
 
     sf::Text texto;
     texto.setFont(font);
-    texto.setCharacterSize(70); // Tamaño del texto
+    texto.setCharacterSize(70); // TamaÃ±o del texto
     texto.setFillColor(sf::Color::White);
 
 
@@ -215,15 +215,15 @@ void Juego::mostrarIntro(sf::RenderWindow &window)
 
     };
 
-    // Construir el texto concatenando las líneas con saltos de línea
+    // Construir el texto concatenando las lÃ­neas con saltos de lÃ­nea
     for (const auto& linea : lineas) {
         texto.setString(texto.getString() + linea + "\n");
     }
 
-    // Establecer un tamaño mínimo para el texto principal
+    // Establecer un tamaÃ±o mÃ­nimo para el texto principal
     int tamanoMinimo = 15;
 
-    // Ajustar el tamaño del texto principal sin bajar del tamaño mínimo
+    // Ajustar el tamaÃ±o del texto principal sin bajar del tamaÃ±o mÃ­nimo
     while (texto.getLocalBounds().width > (window.getSize().x - 40) && texto.getCharacterSize() > tamanoMinimo) {
         texto.setCharacterSize(texto.getCharacterSize() - 1);
     }
@@ -268,7 +268,7 @@ void Juego::mostrarIntro(sf::RenderWindow &window)
                 }
                 else
                 {
-                    textoMostrado += "\n"; // Agrega un salto de línea al final de cada línea
+                    textoMostrado += "\n"; // Agrega un salto de lÃ­nea al final de cada lÃ­nea
                     lineaActual++;
                     letraActual = 0;
                 }
@@ -344,7 +344,7 @@ int Juego::run(ObjetoPersonaje* soldado)
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            // Si el juego está pausado, maneja la entrada para el menú de pausa
+            // Si el juego estÃ¡ pausado, maneja la entrada para el menÃº de pausa
             if (_enPausa)
             {
                 mp.manejarEntrada(event);
@@ -382,7 +382,7 @@ int Juego::run(ObjetoPersonaje* soldado)
                 municion.setDibujar(false);
                 municion.Reproducir();
                 soldado->setSalud(100);
-                soldado->agregarBalas(24);
+                soldado->agregarBalas(36);
                 municion.setAutomaticoTimer();
                 municion.setApareceunavez(true);
             }
