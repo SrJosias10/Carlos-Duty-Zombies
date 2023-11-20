@@ -124,7 +124,7 @@ void Ronda::logicaRonda()
     {
         _ronda = 3;
         vecRonda[2] = false;
-        velocidad=3;
+        velocidad=2;
         aumentavida = 125;
     }
     if(_tiempo>tRonda*3 && vecRonda[3])
@@ -143,7 +143,7 @@ void Ronda::logicaRonda()
     {
         _ronda = 6;
         vecRonda[5] = false;
-        velocidad = 4;
+        velocidad = 3;
         aumentavida = 150;
 
     }
@@ -168,7 +168,7 @@ void Ronda::logicaRonda()
     {
         _ronda = 10;
         vecRonda[9] = false;
-        velocidad = 5;
+        velocidad = 4;
     }
 }
 
