@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Carlos Duty" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Carlos Duty" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="./" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Carlos Duty" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+					<Add directory="./" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="SFML/include" />
+		</Compiler>
+		<Linker>
+			<Add library="SFML/lib/libsfml-graphics-d.a" />
+			<Add library="SFML/lib/libsfml-window-d.a" />
+			<Add library="SFML/lib/libsfml-system-d.a" />
+			<Add library="SFML/lib/libsfml-audio-d.a" />
+			<Add directory="SFML/lib" />
+		</Linker>
+		<Unit filename="include/ArchivoGuardado.h" />
+		<Unit filename="include/Bala.h" />
+		<Unit filename="include/Chaleco.h" />
+		<Unit filename="include/Collisionable.h" />
+		<Unit filename="include/Drop.h" />
+		<Unit filename="include/Escena.h" />
+		<Unit filename="include/Guardado.h" />
+		<Unit filename="include/Juego.h" />
+		<Unit filename="include/Menu.h" />
+		<Unit filename="include/MenuPausa.h" />
+		<Unit filename="include/ObjetoEnemigo.h" />
+		<Unit filename="include/ObjetoPersonaje.h" />
+		<Unit filename="include/Ronda.h" />
+		<Unit filename="src/ArchivoGuardado.cpp" />
+		<Unit filename="src/Bala.cpp" />
+		<Unit filename="src/CarlosDuty.cpp" />
+		<Unit filename="src/Chaleco.cpp" />
+		<Unit filename="src/Collisionable.cpp" />
+		<Unit filename="src/Drop.cpp" />
+		<Unit filename="src/Escena.cpp" />
+		<Unit filename="src/Guardado.cpp" />
+		<Unit filename="src/Juego.cpp" />
+		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/MenuPausa.cpp" />
+		<Unit filename="src/ObjetoEnemigo.cpp" />
+		<Unit filename="src/ObjetoPersonaje.cpp" />
+		<Unit filename="src/Ronda.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

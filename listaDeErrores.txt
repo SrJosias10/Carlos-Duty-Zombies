@@ -1,0 +1,2 @@
+-5 para error al cargar imagenes o sprites.
+-3 para error al cargar sonidos.
